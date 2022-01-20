@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {{ form.non_field_errors }}
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        {{form}}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock content %}

@@ -14,5 +14,8 @@
       <div >{{ form.password }}</div>  
       </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <div>
+      <small>Reset password : <a href="{% url 'password_reset' %}" role="button">Reset</a></small>
+    </div>
   </form>
 {% endblock content %}

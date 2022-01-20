@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import os.path
-
+#import os.path
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -124,11 +124,31 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'blog/static')
 ]
 
+LOGIN_URL='login'
 LOGIN_REDIRECT_URL ='home'
+
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "youremail@gmail.com"
+EMAIL_HOST_PASSWORD = "Youremailpass"
+
+# EMAIL_HOST_USER = os.environ.get('USER')
+# EMAIL_HOST_PASSWORD = os.environ.get('PASS')
+
+#in cmd > %USER% ,if returns your username then they are saved correctly.
+#if less secure app enable still error, then see if print value is None
+#if none then your editor is not able to access os environ #(env)
+#print(EMAIL_HOST_USER)
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
