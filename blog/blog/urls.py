@@ -18,7 +18,9 @@ from django.contrib.auth import views as auth_views
 from django.urls import path,include
 from users import views as user_views #for different auth and user views, as they have same name (.views)
 
+from app import views as home_views
 urlpatterns = [
+    path('', home_views.home),#just for test
     path('blog/', include('app.urls')),
     path('register/', user_views.register, name="register"),
     path('update/', user_views.update, name="update"),
